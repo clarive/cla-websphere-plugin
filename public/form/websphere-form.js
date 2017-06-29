@@ -22,7 +22,7 @@
             ['Check running status','Check running status'],
             ['view','view'],
             ['update','update'],
-            ['custom command','custom command']
+            ['script','Script file']
         ],
         value: params.data.wsadminOption || 'install',
         allowBlank: false,
@@ -46,12 +46,12 @@
         hidden: !(params.data.wsadminOption == 'install' || params.data.wsadminOption == 'update') || true
     });
 
-    var customCommandTextField = Cla.ui.textField({
-        fieldLabel: _('Custom Command'),
-        name: 'customCommand',
-        value: params.data.customCommand || '',
+    var scriptPathTextField = Cla.ui.textField({
+        fieldLabel: _('Script file path'),
+        name: 'scriptPath',
+        value: params.data.scriptPath || '',
         allowBlank: true,
-        hidden: !(params.data.wsadminOption == 'custom command') || true
+        hidden: !(params.data.wsadminOption == 'script') || true
     });
 
     var viewOptionComboBox = Cla.ui.comboBox({
@@ -83,49 +83,49 @@
         var v = wsadminOptionComboBox.getValue();
         if (v == 'install') {
             localFilePathTextField.show();
-            customCommandTextField.hide();
+            scriptPathTextField.hide();
             appNameTextField.hide();
             viewOptionComboBox.hide();
             viewOptionComboBox.allowBlank = true;
             appNameTextField.allowBlank = true;
-            customCommandTextField.allowBlank = true;
+            scriptPathTextField.allowBlank = true;
             localFilePathTextField.allowBlank = false;
 
         } else if (v == 'update') {
             localFilePathTextField.show();
-            customCommandTextField.hide();
+            scriptPathTextField.hide();
             appNameTextField.show();
             viewOptionComboBox.hide();
             viewOptionComboBox.allowBlank = true;
             appNameTextField.allowBlank = false;
-            customCommandTextField.allowBlank = true;
+            scriptPathTextField.allowBlank = true;
             localFilePathTextField.allowBlank = false;
         } else if (v == 'uninstall' || v == 'Start Application' || v == 'Stop Application' || v == 'Restart Application' || v == 'Check running status') {
             localFilePathTextField.hide();
-            customCommandTextField.hide();
+            scriptPathTextField.hide();
             appNameTextField.show();
             viewOptionComboBox.hide();
             viewOptionComboBox.allowBlank = true;
             appNameTextField.allowBlank = false;
-            customCommandTextField.allowBlank = true;
+            scriptPathTextField.allowBlank = true;
             localFilePathTextField.allowBlank = true;
         } else if (v == 'view') {
             localFilePathTextField.hide();
-            customCommandTextField.hide();
+            scriptPathTextField.hide();
             appNameTextField.show();
             viewOptionComboBox.show();
             viewOptionComboBox.allowBlank = false;
             appNameTextField.allowBlank = false;
-            customCommandTextField.allowBlank = true;
+            scriptPathTextField.allowBlank = true;
             localFilePathTextField.allowBlank = true;
         } else {
             localFilePathTextField.hide();
-            customCommandTextField.show();
+            scriptPathTextField.show();
             appNameTextField.hide();
             viewOptionComboBox.hide();
             viewOptionComboBox.allowBlank = true;
             appNameTextField.allowBlank = true;
-            customCommandTextField.allowBlank = false;
+            scriptPathTextField.allowBlank = false;
             localFilePathTextField.allowBlank = true;
         }
     });
@@ -149,7 +149,7 @@
             wsadminOptionComboBox,
             appNameTextField,
             localFilePathTextField,
-            customCommandTextField,
+            scriptPathTextField,
             viewOptionComboBox,
             optionsTextfield,
             errorBox

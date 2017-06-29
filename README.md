@@ -53,10 +53,10 @@ The options available for this parameter are:
     - Restart application: Restarts an installed application.
     - Check running status: Checks whether an application is running or stopped.
     - View: Option to view version, modules, deployment options, etc. of the selected application. 
-    - Custom command: The user can write a custom command on the selected language in the WebSphereServer CI.
+    - Script file: Write the path where the script file is located in the server.
 - **Local file path** - This field will appear with Install and Update options. You need to set the full path to the installation file.
 - **Application name** - This field will appear with Uninstall, Update, View, Start, Stop, Restart and Check running status option. You need to write the name of the application you would likes to perform the task.
-- **Custom command** - This field appears with the Custom command option. You will be able to write the command for the admin script.
+- **Script file path** - This field appears with the Script file option. You will be able to write the path for the script.
 - **Additional options** - Add any other option needed for the wsadmin command.
 - **Errors and Outputs** - These two fields are for error control on the command launch.
 

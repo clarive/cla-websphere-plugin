@@ -10,16 +10,16 @@ reg.register('service.websphere.command', {
         var ci = require("cla/ci");
         var reg = require("cla/reg");
         var log = require("cla/log")
- 
+
         var serverCi = params.server || "";
         var wasCi = ci.findOne({
             mid: serverCi + ''
         });
-        if (!wasCi){
+        if (!wasCi) {
             log.fatal("Server CI doesn't exist");
         }
         var server = wasCi.server;
-        if (!server){
+        if (!server) {
             log.fatal("Generic server CI doesn't exist");
         }
         var wsadminPath = wasCi.wsadminPath || "";
@@ -29,7 +29,7 @@ reg.register('service.websphere.command', {
         var viewOption = params.viewOption || "all";
         var localFilePath = params.localFilePath || "";
         var appName = params.appName || "";
-        var customCommand = params.customCommand || "";
+        var scriptPath = params.scriptPath || "";
         var commandOptions = params.commandOptions || [];
         var errors = params.errors || "fail";
 
@@ -64,7 +64,7 @@ reg.register('service.websphere.command', {
             response,
             parsedResponse,
             doneMessage;
-            
+
         if (wsadminOption == "install") {
             langType = "jython";
             errors = "silent";
@@ -79,19 +79,18 @@ reg.register('service.websphere.command', {
         } else if (wsadminOption == "Stop Application") {
             langType = "jython";
             errors = "silent";
-            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'stopApplication', '\\\"" 
-                    + appName + '\\"\')"';
+            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'stopApplication', '\\\"" +
+                appName + '\\"\')"';
         } else if (wsadminOption == "Start Application") {
             langType = "jython";
             errors = "silent";
-            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'startApplication', '\\\"" 
-                    + appName + '\\"\')"';
+            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'startApplication', '\\\"" +
+                appName + '\\"\')"';
         } else if (wsadminOption == "Check running status") {
             langType = "jython";
             wsadmin = ' -c "' + "print AdminControl.completeObjectName('type=Application,name='\\\"" + appName + '\\"\',*\')\"';
-        } else if (wsadminOption == "custom command") {
-            var cFlag = ((langType == "jython") ? (' -c "' + customCommand + '"') : (" -c '" + customCommand + "'"));
-            wsadmin = cFlag;
+        } else if (wsadminOption == "script") {
+            wsadmin = ' -f ' + scriptPath;
         } else if (wsadminOption == "view") {
             langType = "jython";
             if (viewOption == "all") {
@@ -110,12 +109,12 @@ reg.register('service.websphere.command', {
         } else if (wsadminOption == "Restart Application") {
             langType = "jython";
             errors = "silent";
-            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'stopApplication', '\\\"" 
-                    + appName + '\\"\')"';
+            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'stopApplication', '\\\"" +
+                appName + '\\"\')"';
             fullCommand = wsadminPath + " -conntype " + connectionType + " -lang " + langType + " " + options + wsadmin;
             commandLaunch = remoteCommand(params, fullCommand, server, errors);
-            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'startApplication', '\\\"" 
-                    + appName + '\\"\')"';
+            wsadmin = ' -c "' + "print AdminControl.invoke(AdminControl.queryNames('type=ApplicationManager,*'), 'startApplication', '\\\"" +
+                appName + '\\"\')"';
             fullCommand = wsadminPath + " -conntype " + connectionType + " -lang " + langType + " " + options + wsadmin;
             commandLaunch = remoteCommand(params, fullCommand, server, errors);
             response = commandLaunch.output;
@@ -139,6 +138,7 @@ reg.register('service.websphere.command', {
         } else {
             log.fatal("No option selected");
         }
+
         fullCommand = wsadminPath + " -conntype " + connectionType + " -lang " + langType + " " + options + wsadmin;
         commandLaunch = remoteCommand(params, fullCommand, server, errors);
         response = commandLaunch.output;
