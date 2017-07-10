@@ -12,17 +12,17 @@
 
     var wsadminOptionComboBox = Cla.ui.comboBox({
         name: 'wsadminOption',
-        fieldLabel: 'WSAdmin option',
+        fieldLabel: _('WSAdmin option'),
         data: [
-            ['install','install'],
-            ['uninstall','uninstall'],
-            ['Start Application','Start Application'],
-            ['Stop Application','Stop Application'],
-            ['Restart Application','Restart Application'],
-            ['Check running status','Check running status'],
-            ['view','view'],
-            ['update','update'],
-            ['script','Script file']
+            ['install',_('install')],
+            ['uninstall',_('uninstall')],
+            ['Start Application',_('Start Application')],
+            ['Stop Application',_('Stop Application')],
+            ['Restart Application',_('Restart Application')],
+            ['Check running status',_('Check running status')],
+            ['view',_('view')],
+            ['update',_('update')],
+            ['script',_('Script file')]
         ],
         value: params.data.wsadminOption || 'install',
         allowBlank: false,
@@ -56,13 +56,13 @@
 
     var viewOptionComboBox = Cla.ui.comboBox({
         name: 'viewOption',
-        fieldLabel: 'View option',
+        fieldLabel: _('View option'),
         data: [
-            ['all','all'],
-            ['tasknames','tasknames'],
-            ['MapModulesToServers','MapModulesToServers'],
-            ['AppDeploymentOptions','AppDeploymentOptions'],
-            ['buildVersion','buildVersion']
+            ['all',_('all')],
+            ['tasknames',_('tasknames')],
+            ['MapModulesToServers',_('MapModulesToServers')],
+            ['AppDeploymentOptions',_('AppDeploymentOptions')],
+            ['buildVersion',_('buildVersion')]
         ],
         value: params.data.viewOption || 'all',
         allowBlank: true,
@@ -75,7 +75,7 @@
         fieldLabel: _('Additional options'),
         name: 'commandOptions',
         value: params.data.commandOptions,
-        description: 'Command Options',
+        description: _('Command Options'),
         default_value: '.'
     });
 

@@ -1,0 +1,211 @@
+#: init/websphere.js
+msgid "Websphere Task"
+msgstr "Tarea de Websphere"
+
+#: init/websphere.js
+msgid "Server CI doesn't exist"
+msgstr "El CI de servidor no existe"
+
+#: init/websphere.js
+msgid "Generic server CI doesn't exist"
+msgstr "El CI de servidor genérico no existe"
+
+#: init/websphere.js
+msgid "No option for view selected"
+msgstr "Ninguna opción para Ver serleccionada"
+
+#: init/websphere.js
+msgid "Warning "
+msgstr "Atención "
+
+#: init/websphere.js
+msgid "Restart application failed "
+msgstr "Reinicio de aplicación fallido "
+
+#: init/websphere.js
+msgid "Done, application "
+msgstr "Hecho, aplicación "
+
+#: init/websphere.js
+msgid " restarted"
+msgstr " reiniciada"
+
+#: init/websphere.js
+msgid "No option selected"
+msgstr "Ninguna opción seleccionada"
+
+#: init/websphere.js
+msgid "Installation failed "
+msgstr "Instalación fallida "
+
+#: init/websphere.js
+msgid "Done "
+msgstr "Hecho "
+
+#: init/websphere.js
+msgid "Uninstallation failed "
+msgstr "Desinstalación fallida "
+
+#: init/websphere.js
+msgid "Warning, application "
+msgstr "Atanción, aplicación "
+
+#: init/websphere.js
+msgid " already started"
+msgstr " ya iniciada"
+
+#: init/websphere.js
+msgid "Start application failed "
+msgstr "Inicio de aplicación fallido "
+
+#: init/websphere.js
+msgid " started"
+msgstr " iniciada"
+
+#: init/websphere.js
+msgid "Stop application failed "
+msgstr "Fallo al para la aplicación "
+
+#: init/websphere.js
+msgid " stopped"
+msgstr " parada"
+
+#: init/websphere.js
+msgid "Application "
+msgstr "Aplicación "
+
+#: init/websphere.js
+msgid " is running"
+msgstr " está iniciada"
+
+#: init/websphere.js
+msgid " is stopped"
+msgstr " está parada"
+
+#: public/form/websphere-form.js public/form/websphereCI-form.js
+msgid "Server"
+msgstr "Servidor"
+
+#: public/form/websphere-form.js
+msgid "WSAdmin option"
+msgstr "Opción de WSAdmin"
+
+#: public/form/websphere-form.js
+msgid "install"
+msgstr "instalar"
+
+#: public/form/websphere-form.js
+msgid "uninstall"
+msgstr "desinstalar"
+
+#: public/form/websphere-form.js
+msgid "Start Application"
+msgstr "Iniciar aplicación"
+
+#: public/form/websphere-form.js
+msgid "Stop Application"
+msgstr "Parar aplicación"
+
+#: public/form/websphere-form.js
+msgid "Restart Application"
+msgstr "Reiniciar aplicación"
+
+#: public/form/websphere-form.js
+msgid "Check running status"
+msgstr "Comprobar estado"
+
+#: public/form/websphere-form.js
+msgid "view"
+msgstr "Ver"
+
+#: public/form/websphere-form.js
+msgid "update"
+msgstr "Actualizar"
+
+#: public/form/websphere-form.js
+msgid "Script file"
+msgstr "Archivo con script"
+
+#: public/form/websphere-form.js
+msgid "Application name"
+msgstr "Nombre de aplicación"
+
+#: public/form/websphere-form.js
+msgid "Local file path"
+msgstr "Ruta de archivo local"
+
+#: public/form/websphere-form.js
+msgid "Script file path"
+msgstr "Ruta del archivo con el script"
+
+#: public/form/websphere-form.js
+msgid "View option"
+msgstr "Opción de visionado"
+
+#: public/form/websphere-form.js
+msgid "all"
+msgstr "Todo"
+
+#: public/form/websphere-form.js
+msgid "tasknames"
+msgstr "Nombre de tareas"
+
+#: public/form/websphere-form.js
+msgid "MapModulesToServers"
+msgstr "Mapa de modulos a servidores"
+
+#: public/form/websphere-form.js
+msgid "AppDeploymentOptions"
+msgstr "Opciones del despliegue de la aplicación"
+
+#: public/form/websphere-form.js
+msgid "buildVersion"
+msgstr "Versión de compilación"
+
+#: public/form/websphere-form.js
+msgid "Additional options"
+msgstr "Opciones adicionales"
+
+#: public/form/websphere-form.js
+msgid "Command Options"
+msgstr "Opciones de comando"
+
+#: public/form/websphereCI-form.js
+msgid "WebSphere admin script path"
+msgstr "Ruta al archivo de Websphere admin"
+
+#: public/form/websphereCI-form.js
+msgid "Connection Type"
+msgstr "Tipo de conexión"
+
+#: public/form/websphereCI-form.js
+msgid "none"
+msgstr "nada"
+
+#: public/form/websphereCI-form.js
+msgid "SOAP"
+msgstr "SOAP"
+
+#: public/form/websphereCI-form.js
+msgid "RMI"
+msgstr "RMI"
+
+#: public/form/websphereCI-form.js
+msgid "JSR160RMI"
+msgstr "JSR160RMI"
+
+#: public/form/websphereCI-form.js
+msgid "IPC"
+msgstr "IPC"
+
+#: public/form/websphereCI-form.js
+msgid "Language mode"
+msgstr "Modo de lenguaje"
+
+#: public/form/websphereCI-form.js
+msgid "jacl"
+msgstr "jacl"
+
+#: public/form/websphereCI-form.js
+msgid "jython"
+msgstr "jython"

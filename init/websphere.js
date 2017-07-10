@@ -1,7 +1,7 @@
 var reg = require('cla/reg');
 
 reg.register('service.websphere.command', {
-    name: 'Websphere Task',
+    name: _('Websphere Task'),
     icon: '/plugin/cla-websphere-plugin/icon/websphere.svg',
     form: '/plugin/cla-websphere-plugin/form/websphere-form.js',
 
@@ -16,11 +16,11 @@ reg.register('service.websphere.command', {
             mid: serverCi + ''
         });
         if (!wasCi) {
-            log.fatal("Server CI doesn't exist");
+            log.fatal(_("Server CI doesn't exist"));
         }
         var server = wasCi.server;
         if (!server) {
-            log.fatal("Generic server CI doesn't exist");
+            log.fatal(_("Generic server CI doesn't exist"));
         }
         var wsadminPath = wasCi.wsadminPath || "";
         var connectionType = wasCi.connectionType || "none";
@@ -35,7 +35,7 @@ reg.register('service.websphere.command', {
 
         function remoteCommand(params, command, server, errors) {
             var launch = reg.launch('service.scripting.remote', {
-                name: 'Websphere Task',
+                name: _('Websphere Task'),
                 config: {
                     errors: errors,
                     server: server,
@@ -104,7 +104,7 @@ reg.register('service.websphere.command', {
             } else if (viewOption == "buildVersion") {
                 wsadmin = ' -c "print AdminApp.view(\\"' + appName + '\\",[\\"-buildVersion\\"])"';
             } else {
-                log.fatal("No option for view selected");
+                log.fatal(_("No option for view selected"));
             }
         } else if (wsadminOption == "Restart Application") {
             langType = "jython";
@@ -121,22 +121,22 @@ reg.register('service.websphere.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rcOk != commandLaunch.rc)) {
                 parsedResponse = response.match(/ already started/);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + parsedResponse, response);
+                    log.warn(_("Warning ") + parsedResponse, response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rcError != commandLaunch.rc)) {
-                        log.fatal("Restart application failed ", response);
+                        log.fatal(_("Restart application failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rcWarn != commandLaunch.rc)) {
-                        log.warn("Restart application failed ", response);
+                        log.warn(_("Restart application failed "), response);
                     } else {
-                        log.error("Restart application failed ", response);
+                        log.error(_("Restart application failed "), response);
                     }
                 }
             } else {
-                log.info("Done, application " + appName + " restarted", response);
+                log.info(_("Done, application ") + appName + _(" restarted"), response);
             }
             return response;
         } else {
-            log.fatal("No option selected");
+            log.fatal(_("No option selected"));
         }
 
         fullCommand = wsadminPath + " -conntype " + connectionType + " -lang " + langType + " " + options + wsadmin;
@@ -147,79 +147,79 @@ reg.register('service.websphere.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rcOk != commandLaunch.rc)) {
                 parsedResponse = response.match(/An application with name ".*" already exists. Select a different name./);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + parsedResponse, response);
+                    log.warn(_("Warning ") + parsedResponse, response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rcError != commandLaunch.rc)) {
-                        log.fatal("Installation failed ", response);
+                        log.fatal(_("Installation failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rcWarn != commandLaunch.rc)) {
-                        log.warn("Installation failed ", response);
+                        log.warn(_("Installation failed "), response);
                     } else {
-                        log.error("Installation failed ", response);
+                        log.error(_("Installation failed "), response);
                     }
                 }
             } else {
                 doneMessage = response.match(/Application.*installed successfully./);
-                log.info("Done " + doneMessage, response);
+                log.info(_("Done ") + doneMessage, response);
             }
         } else if (wsadminOption == "uninstall") {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rcOk != commandLaunch.rc)) {
                 parsedResponse = response.match(/An application with name ".*" does not exist./);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + parsedResponse, response);
+                    log.warn(_("Warning ") + parsedResponse, response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rcError != commandLaunch.rc)) {
-                        log.fatal("Uninstallation failed ", response);
+                        log.fatal(_("Uninstallation failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rcWarn != commandLaunch.rc)) {
-                        log.warn("Uninstallation failed ", response);
+                        log.warn(_("Uninstallation failed "), response);
                     } else {
-                        log.error("Uninstallation failed ", response);
+                        log.error(_("Uninstallation failed "), response);
                     }
                 }
             } else {
                 doneMessage = response.match(/Application.*uninstalled successfully./);
-                log.info("Done " + doneMessage, response);
+                log.info(_("Done ") + doneMessage, response);
             }
         } else if (wsadminOption == "Start Application") {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rcOk != commandLaunch.rc)) {
                 parsedResponse = response.match(/ already started/);
                 if (parsedResponse != null) {
-                    log.warn("Warning, application " + appName + " already started", response);
+                    log.warn(_("Warning, application ") + appName + _(" already started"), response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rcError != commandLaunch.rc)) {
-                        log.fatal("Start application failed ", response);
+                        log.fatal(_("Start application failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rcWarn != commandLaunch.rc)) {
-                        log.warn("Start application failed ", response);
+                        log.warn(_("Start application failed "), response);
                     } else {
-                        log.error("Start application failed ", response);
+                        log.error(_("Start application failed "), response);
                     }
                 }
             } else {
-                log.info("Done, application " + appName + " started", response);
+                log.info(_("Done, application ") + appName + _(" started"), response);
             }
         } else if (wsadminOption == "Stop Application") {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rcOk != commandLaunch.rc)) {
                 parsedResponse = response.match(/Application.*not started/);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + parsedResponse, response);
+                    log.warn(_("Warning ") + parsedResponse, response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rcError != commandLaunch.rc)) {
-                        log.fatal("Stop application failed ", response);
+                        log.fatal(_("Stop application failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rcWarn != commandLaunch.rc)) {
-                        log.warn("Stop application failed ", response);
+                        log.warn(_("Stop application failed "), response);
                     } else {
-                        log.error("Stop application failed ", response);
+                        log.error(_("Stop application failed "), response);
                     }
                 }
             } else {
-                log.info("Done, application " + appName + " stopped", response);
+                log.info(_("Done, application ") + appName + _(" stopped"), response);
             }
         } else if (wsadminOption == "Check running status") {
 
             parsedResponse = response.indexOf("WebSphere:name=" + appName);
             if (parsedResponse > 0) {
-                log.info("Application " + appName + " is running", response);
+                log.info(_("Application ") + appName + _(" is running"), response);
             } else {
-                log.info("Application " + appName + " is stopped", response);
+                log.info(_("Application ") + appName + _(" is stopped"), response);
             }
         }
         return response;

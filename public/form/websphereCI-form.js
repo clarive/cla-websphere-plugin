@@ -18,13 +18,13 @@
 
     var connectionTypeComboBox = Cla.ui.comboBox({
         name: 'connectionType',
-        fieldLabel: 'Connection Type',
+        fieldLabel: _('Connection Type'),
         data: [
-            ['none','none'],
-            ['SOAP','SOAP'],
-            ['RMI','RMI'],
-            ['JSR160RMI','JSR160RMI'],
-            ['IPC','IPC']
+            ['none',_('none')],
+            ['SOAP',_('SOAP')],
+            ['RMI',_('RMI')],
+            ['JSR160RMI',_('JSR160RMI')],
+            ['IPC',_('IPC')]
         ],
         value: params.rec.connectionType || 'none',
         allowBlank: false,
@@ -34,10 +34,10 @@
 
     var langComboBox = Cla.ui.comboBox({
         name: 'langType',
-        fieldLabel: 'Language mode',
+        fieldLabel: _('Language mode'),
         data: [
-            ['jacl','jacl'],
-            ['jython','jython']
+            ['jacl',_('jacl')],
+            ['jython',_('jython')]
         ],
         value: params.rec.langType || 'jacl',
         allowBlank: false,
