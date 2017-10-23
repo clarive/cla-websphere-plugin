@@ -1,7 +1,7 @@
 name: Clarive WebSphere Plugin
 description: The Websphere plugin will allow you to manage your Websphere Application Server applications from a Clarive instance.
 version: 1.0
-icon: https://github.com/clarive/cla-websphere-plugin/public/icon/websphere.svg
+icon: https://cdn.rawgit.com/clarive/cla-websphere-plugin/master/public/icon/websphere.svg?sanitize=true
 url: https://github.com/clarive/cla-websphere-plugin
 requires:
   - clarive_version: 6.8 <= version
