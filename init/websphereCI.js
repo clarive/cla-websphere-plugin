@@ -5,7 +5,7 @@ ci.createRole("WebSphere");
 ci.createClass("WebSphereServer", {
     form: '/plugin/cla-websphere-plugin/form/websphereCI-form.js',
     icon: '/plugin/cla-websphere-plugin/icon/websphere.svg',
-    roles: ["WebSphere"],
+    roles: ["WebSphere", "ClariveSE"],
     has: {
         server: {
             is: "rw",

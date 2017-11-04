@@ -4,7 +4,31 @@ reg.register('service.websphere.command', {
     name: _('Websphere Task'),
     icon: '/plugin/cla-websphere-plugin/icon/websphere.svg',
     form: '/plugin/cla-websphere-plugin/form/websphere-form.js',
+    rulebook: {
+        moniker: 'websphere_control',
+        description: _('Execute Websphere commands'),
+        required: [ 'server', 'wsadmin_option'],
+        allow: ['server', 'wsadmin_option', 'app_name', 'local_file_path', 'script_path', 'view_option',
+        'command_options', 'errors' ],
+        mapper: {
+            'wsadmin_option':'wsadminOption',
+            'app_name':'appName',
+            'local_file_path':'localFilePath',
+            'script_path':'scriptPath',
+            'view_option':'viewOption',
+            'command_options':'commandOptions'
+        },
+        examples: [{
+            websphere_control: {
+                server: 'websphere_resource',
+                wsadmin_option: 'update',
+                local_file_path: '/appSample/installableApps/appSample.ear',
+                app_name: 'Sample application',
+                command_options: ['-user admin', '-password adminpwd']
 
+            }
+        }]
+    },
     handler: function(ctx, params) {
 
         var ci = require("cla/ci");
