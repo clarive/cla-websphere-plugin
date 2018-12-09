@@ -1,6 +1,6 @@
 # WebSphere plugin
 
-<img src="https://cdn.rawgit.com/clarive/cla-websphere-plugin/master/public/icon/websphere.svg?sanitize=true" alt="WebSphere Plugin" title="WebSphere Plugin" width="120" height="120">
+<img src="https://cdn.jsdelivr.net/gh/clarive/cla-websphere-plugin@master/public/icon/websphere.svg?sanitize=true" alt="WebSphere Plugin" title="WebSphere Plugin" width="120" height="120">
 
 The Websphere plugin will allow you to manage your Websphere Application Server applications from a Clarive instance.
 
